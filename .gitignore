@@ -1,9 +1,9 @@
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### Eclipse ###
+# Eclipse
 .apt_generated
 .classpath
 .factorypath
@@ -15,25 +15,27 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
+# VS Code
 .vscode/
 
-### Mac OS ###
+# Mac OS
 .DS_Store
 
-# Ignorar todos os arquivos que contêm apenas comentários de linha
-*/*/            # Ignorar pastas intermediárias
-**/*.java       # Ignorar arquivos .java
-!**/*.java      # Mas não ignore arquivos .java
-
 # Ignorar arquivos .java que contêm apenas comentários de linha
-**/*.java      # Ignore todos os arquivos .java
-!**/*.java     # Mas não ignore arquivos .java
-**/*.java      # Ignore todos os arquivos .java novamente
+**/*.java
+
+# Negar arquivos .java que contêm apenas comentários de linha
+!**/*.java
+
+# Ignorar pastas intermediárias
+*/*/
+
+# Ignorar arquivos .java que contêm apenas comentários de linha novamente
+**/*.java
