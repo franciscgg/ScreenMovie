@@ -1,11 +1,12 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import screenmovie.model.Movie;
+
 public class Main {
     public static void main(String[] args) {
       Movie myMovie = new Movie();
-      myMovie.nomeFilme = "Scarface";
-      myMovie.anoDeLancamento = 1973;
-      myMovie.duracaoEmMinutos = 180;
+      myMovie.setNomeFilme("Scarface");
+      myMovie.setAnoDeLancamento(1973);
+      myMovie.setDuracaoEmMinutos(180);
+      myMovie.setPlano(true);
 
     //Chamar o método
     myMovie.exibirFichaTecnica();
@@ -13,8 +14,8 @@ public class Main {
     myMovie.avalia(5);
     myMovie.avalia(7);
 
-        System.out.println(myMovie.somaDasAvaliacoes);
-        System.out.println(myMovie.totalDeAvaliacao);
-        System.out.println(myMovie.retornaMedia());
+        System.out.println("Total de avaliações: " + myMovie.getTotalDeAvaliacao());
+        System.out.println("Media dos filme: " + myMovie.retornaMedia());
+
     }
 }
