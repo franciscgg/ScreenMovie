@@ -1,4 +1,6 @@
+import screenmovie.calculation.FiltroRecomendacao;
 import screenmovie.calculation.TimeCalculator;
+import screenmovie.model.Episodio;
 import screenmovie.model.Movie;
 import screenmovie.model.Serie;
 
@@ -39,5 +41,14 @@ public class Main {
         calculator.inclui(anotherMovie);
         calculator.inclui(peppaPig);
         System.out.println(calculator.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtro(myMovie);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(5);
+        episodio.setSerie(peppaPig);
+        episodio.setTotalVisualizacoes(300);
+        filtro.filtro(episodio);
     }
 }
