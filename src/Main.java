@@ -4,11 +4,11 @@ import screenmovie.model.Episodio;
 import screenmovie.model.Movie;
 import screenmovie.model.Serie;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-      Movie myMovie = new Movie();
-      myMovie.setNome("Scarface");
-      myMovie.setAnoDeLancamento(1973);
+      Movie myMovie = new Movie("Scarface",1973);
       myMovie.setDuracaoEmMinutos(180);
       myMovie.setPlano(true);
 
@@ -22,23 +22,19 @@ public class Main {
         System.out.println(String.format("Media dos filme: %.1f " , myMovie.retornaMedia()));
 
 
-        Serie peppaPig = new Serie();
-        peppaPig.setNome("Peppa Pig");
-        peppaPig.setAnoDeLancamento(2017);
+        Serie peppaPig = new Serie("Peppa Pig", 2017);
         peppaPig.exibirFichaTecnica();
         peppaPig.setTemporadas(7);
         peppaPig.setEpisodiosPorTemporada(25);
         peppaPig.setMinutosPorEpisodios(25);
         System.out.println("Duração da maratonar Peppa Pig: " + peppaPig.getDuracaoEmMinutos());
 
-        Movie anotherMovie = new Movie();
-        anotherMovie.setNome("Logan");
-        anotherMovie.setAnoDeLancamento(2017);
-        anotherMovie.setDuracaoEmMinutos(200);
+        Movie myMovieTwo = new Movie("Logan",2017);
+        myMovieTwo.setDuracaoEmMinutos(200);
 
         TimeCalculator calculator = new TimeCalculator();
         calculator.inclui(myMovie);
-        calculator.inclui(anotherMovie);
+        calculator.inclui(myMovieTwo);
         calculator.inclui(peppaPig);
         System.out.println(calculator.getTempoTotal());
 
@@ -50,5 +46,20 @@ public class Main {
         episodio.setSerie(peppaPig);
         episodio.setTotalVisualizacoes(300);
         filtro.filtro(episodio);
+
+        var myMovieThree = new Movie("Wolverine",2017);
+        myMovieThree.setDuracaoEmMinutos(200);
+        myMovieThree.setAnoDeLancamento(2008);
+        myMovieThree.avalia(10);
+
+
+        ArrayList<Movie> filmes = new ArrayList<>();
+        filmes.add(myMovie);
+        filmes.add(myMovieTwo);
+        filmes.add(myMovieThree);
+        System.out.println(String.format("Tamanho da lista de filmes: " + filmes.size()));
+        System.out.println("Primeiro filme: " + filmes.get(0).getNome());
+        System.out.println(filmes);
+
     }
 }
