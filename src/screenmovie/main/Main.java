@@ -1,3 +1,5 @@
+package screenmovie.main;
+
 import screenmovie.calculation.FiltroRecomendacao;
 import screenmovie.calculation.TimeCalculator;
 import screenmovie.model.Episodio;
