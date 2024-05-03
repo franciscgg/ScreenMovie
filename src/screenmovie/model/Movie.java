@@ -24,6 +24,6 @@ public class Movie extends Titulo implements Classificavel {
 
     @Override
     public String toString() {
-        return "Filme: " + this.getNome() + "\nAno de lançamento: " + this.getAnoDeLancamento() + "\nDuração: " + this.getDuracaoEmMinutos();
+        return "Filme: " + this.getNome() + " Ano de lançamento: " + this.getAnoDeLancamento() + " Duração: " + this.getDuracaoEmMinutos();
     }
 }

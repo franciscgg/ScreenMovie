@@ -1,6 +1,6 @@
 package screenmovie.model;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
     private String nome;
     private int anoDeLancamento;
     private boolean plano;
@@ -62,5 +62,10 @@ public class Titulo {
     //não precisa definir o método pq já é double, return para ele retornar
     public double retornaMedia(){
         return somaDasAvaliacoes / totalDeAvaliacao;
+    }
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
     }
 }
