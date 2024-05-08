@@ -2,6 +2,7 @@ package screenmovie.main;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import screenmovie.execao.ErroDeConversaoExecption;
 import screenmovie.model.Titulo;
 import screenmovie.model.TituloOmdb;
 
@@ -21,6 +22,7 @@ public class MainWithSearch {
         String search = scanner.nextLine();
         String encodedSearch = URLEncoder.encode(search, "UTF-8");
         String endereco = "https://www.omdbapi.com/?t=" + encodedSearch + "&apikey=eb7641c1";
+        try{
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endereco))
@@ -33,7 +35,15 @@ public class MainWithSearch {
         Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
         TituloOmdb meuTituloOmdb = gson.fromJson(json,TituloOmdb.class);
         System.out.println(meuTituloOmdb);
-        Titulo meuTitulo = new Titulo(meuTituloOmdb);
-        System.out.println("Titulo convertido: " + meuTitulo);
+            Titulo meuTitulo = new Titulo(meuTituloOmdb);
+            System.out.println("Titulo convertido: " + meuTitulo);
+        }catch (NumberFormatException e){
+            System.out.println("Aconteceu um erro");
+            System.out.println(e.getMessage());
+        }catch (ErroDeConversaoExecption e){
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("O programa finalizou corretamente");
     }
 }
